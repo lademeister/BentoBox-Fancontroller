@@ -99,7 +99,7 @@ Do NOT connect the tacho signal of the fans directly and without a level convert
 
 To connect the level converter, it needs two voltage references: low voltage and high voltage. The voltage that you apply on those two pins of the level converter msut be 3.3V for LOW voltage and 5V for HIGH voltage. Those pins are usually labeled with LV and HV. 
 For the 3.3V voltage reference you can directly connect LV to the 3.3V pin of the Wemos board. 
-For the 5V voltage reference you can directly connect HV to the 35V pin of the Wemos board (labeled VBUS on the board). 
+For the 5V voltage reference you can directly connect HV to the 5V pin of the Wemos board (labeled VBUS on the board). 
 Basically the level converter board is in between ESP32 and the fan, particularly for the Tacho signal pins. 
 It usually works just fine to directly connect the output pins of ESP32 (the two pins that are used for fan speed control) to the fans directly. 
 But tacho signal needs to be sent through the level converter.

@@ -74,9 +74,12 @@ After connecting the microcontroller via USB you should find the port of your bo
 Select it and go to Sketch/Upload (or use CTRL+U) to compile and upload the code.
 
 After first upload and setting up your wifi credentials using the configurartion site (the captive portal opens up automatically when connecting a computer or mobile phone to the WiFi hotspot that the chip opens up), any future code updates can be made using over the air-update (OTA) directly from arduino IDE. For that, you just change the port from the USB connection to the device that will show up in the port selection menu. Usually, Arduino IDE needs to be restarted to find the device.
+For initial USB programming it may be necessary to hold the button (which is on GPIO 0) down while powering the board up.
+Set USB CDC on boot to ON in the TOOLS/ menu, to be able to see serial output when the ESP32 is connected to your computer via USB.
 
 
---- what you need from hardware point of view ---
+
+--- what you needfrom hardware point of view ---
 If you want to use the code without changes, use a Wemos ESP32-S2 mini V1.0.0 microcontroller.
 
 Use 4pin fans that have PWM speed control and a tacho signal output.
@@ -101,7 +104,22 @@ Basically the level converter board is in between ESP32 and the fan, particularl
 It usually works just fine to directly connect the output pins of ESP32 (the two pins that are used for fan speed control) to the fans directly. 
 But tacho signal needs to be sent through the level converter.
 
+Additionally you should use a 128x32 i2C OLED display and a BME280 I2C Temperature- and Humidity-sensor
+For sensong the print bed position, use an adjustable optical IR sensor switch
 
+---  hardware list ---
+1x Wemos ESP32-S2 mini (typically purple color)
+1x IR distance switch
+1x levelconverter-board
+2x buck converter
+1x OLED 128x32
+1x BME280 I2C sensor
+
+2x 4028 fan, with 4pin connector, supporting PWM speed control and fan speed tacho signal output
+
+some cables and a soldering iron
+
+For the pins to connect to, refer to the code (in the range of line 104-144) in .ino file.
 
 
 
